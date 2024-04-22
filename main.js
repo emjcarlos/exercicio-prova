@@ -1,6 +1,6 @@
 const form = document.getElementById("form-numeros");
-const formularioA = document.getElementById("numeroA").value;
-const formularioB = document.getElementById("numeroB").value;
+const formularioA = document.getElementById("numeroA");
+const formularioB = document.getElementById("numeroB");
 
 function somaNumeros() {
   const formularioCorreto = formularioB.value > formularioA.value;
@@ -13,7 +13,7 @@ form.addEventListener("submit", function (e) {
 
   // const mensagemSucesso = `formulário B (${formularioB.value}) é maior que o formulário A (${formularioA.value})`;
 
-  formularioValido = somaNumeros(formularioB > formularioA);
+  formularioValido = somaNumeros();
   if (formularioValido) {
     alert("mensagemSucesso");
   } else {
