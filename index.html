@@ -11,14 +11,16 @@
     <div class="container">
       <h1>Números</h1>
       <h3>
-        Coloque qualquer número no formulário abaixo, sendo que o número no
-        formulário 'B', tem que ser maior que no formulário 'A'
+        Coloque um número de 1 a 9, sendo que o número no formulário 'B', tem
+        que ser maior que no formulário 'A'
       </h3>
       <form id="form-numeros">
         <input type="number" id="numeroA" required placeholder="Formulário A" />
         <input type="number" id="numeroB" required placeholder="Formulário B" />
+        <p class="error-message">teste</p>
         <button id="btn-testar" type="submit">testar</button>
       </form>
+      <p class="success-message"></p>
     </div>
     <script src="main.js"></script>
   </body>

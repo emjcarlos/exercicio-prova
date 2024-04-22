@@ -1,6 +1,7 @@
 const form = document.getElementById("form-numeros");
 const formularioA = document.getElementById("numeroA");
 const formularioB = document.getElementById("numeroB");
+let formularioValido = false;
 
 function somaNumeros() {
   const formularioCorreto = formularioB.value > formularioA.value;
@@ -8,17 +9,33 @@ function somaNumeros() {
 }
 
 form.addEventListener("submit", function (e) {
-  let formularioValido = false;
   e.preventDefault();
 
-  // const mensagemSucesso = `formulário B (${formularioB.value}) é maior que o formulário A (${formularioA.value})`;
+  const mensagemSucesso = `formulário B <b>${formularioB.value}</b> é maior que o formulário A <b>${formularioA.value}</b>`;
 
   formularioValido = somaNumeros();
   if (formularioValido) {
-    alert("mensagemSucesso");
+    const cMsgSucess = document.querySelector(".success-message");
+    cMsgSucess.innerHTML = mensagemSucesso;
+    cMsgSucess.style.display = "block";
+
+    formularioA.value = "";
+    formularioB.value = "";
   } else {
-    alert("deu errado");
+    document.querySelector(".error-message").style.display = "block";
+    formularioB.style.border = "1px solid red";
   }
 });
 
-console.log(form);
+formularioB.addEventListener("keyup", function (e) {
+  console.log(e.target.value);
+  formularioValido = somaNumeros(e.target.value);
+
+  if (!formularioValido) {
+    formularioB.classList.add("error");
+    document.querySelector(".error-message").style.display = "block";
+  } else {
+    formularioB.classList.remove("error");
+    document.querySelector(".error-message").style.display = "none";
+  }
+});
