@@ -24,6 +24,9 @@ form.addEventListener("submit", function (e) {
   } else {
     document.querySelector(".error-message").style.display = "block";
     formularioB.style.border = "1px solid red";
+
+    formularioA.value = "";
+    formularioB.value = "";
   }
 });
 
